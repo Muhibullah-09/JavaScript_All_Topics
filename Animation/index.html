@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      .head {
+        background: red;
+        border-radius: 50px;
+        width: 100px;
+        height: 100px;
+        text-align: center;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="head"></div>
+    <button class="play">Play</button>
+    <button class="pause">Pause</button>
+    <button class="reverse">Reverse</button>
+    <button class="updatePlaybackRate">Update Playback Rate</button>
+
+    <script>
+      window.addEventListener("load", function () {
+        var shapeElement = document.querySelector(".head");
+        var Frames = [
+          { background: "red", transform: "translateX(0px)" },
+          { background: "yellow" },
+          { background: "blue" },
+          { background: "black" },
+          { background: "green", transform: "translateX(1080px)" },
+        ];
+
+        var Timer = {
+          duration: 3000,
+          iterations: Infinity,
+          //   direction: "alternate",
+        };
+
+        var shapeAnimate = shapeElement.animate(Frames, Timer);
+
+        document.querySelector(".play").addEventListener("click", function () {
+          shapeAnimate.play();
+        });
+        document.querySelector(".pause").addEventListener("click", function () {
+          shapeAnimate.pause();
+        });
+        document
+          .querySelector(".reverse")
+          .addEventListener("click", function () {
+            shapeAnimate.reverse();
+          });
+        document
+          .querySelector(".updatePlaybackRate")
+          .addEventListener("click", function () {
+            shapeAnimate.updatePlaybackRate(shapeAnimate.playbackRate * 1.2);
+          });
+      });
+    </script>
+  </body>
+</html>
