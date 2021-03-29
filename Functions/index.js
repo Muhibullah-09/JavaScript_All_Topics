@@ -192,3 +192,4 @@ function factorial(n)
 }
 console.log("Factorial of six is = "+factorial(6));
 console.log("Factorial of three is = "+factorial(3));
+
